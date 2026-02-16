@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dandu Chandra Shikara | Software & AI Applications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Dandu Chandra Shikara</h1>
+    <p class="role">
+      Computer Science Undergraduate • Backend & AI Applications
+    </p>
+
+    <div class="cta">
+      <a href="https://github.com/ChandraShikara" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/dandu-chandra-shikara-93763a2a0" target="_blank">LinkedIn</a>
+      <a href="mailto:danduchandrashikara21@gmail.com">Contact</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="glass">
+    <h2>About</h2>
+    <p>
+      Final-year B.Tech CSE student (CGPA 9.2) with hands-on experience in 
+      backend API development, NLP-based systems, and full-stack applications. 
+      I have built practical AI-driven systems using FastAPI, React, and 
+      transformer models such as BERT, with exposure to Generative AI and 
+      multi-agent workflows.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>Selected Projects</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Multi-Agent AI Nutrition Analysis</h3>
+        <p>
+          Designed a profile-aware multi-agent system to generate personalized 
+          nutrition guidance. Implemented backend logic using FastAPI and 
+          integrated REST APIs with a React frontend.
+        </p>
+        <span>FastAPI • Generative AI • Agentic AI • React</span>
+      </div>
+
+      <div class="card">
+        <h3>Named Entity Recognition (NER)</h3>
+        <p>
+          Built a BERT-based NER pipeline and exposed prediction endpoints 
+          via FastAPI. Evaluated model performance and analyzed limitations.
+        </p>
+        <span>BERT • NLP • Transformers • REST APIs</span>
+      </div>
+
+      <div class="card">
+        <h3>Lectures Check</h3>
+        <p>
+          Developed an NLP similarity system to verify lecture alignment with 
+          syllabus topics using embeddings and semantic comparison.
+        </p>
+        <span>NLP • Embeddings • Flask • React</span>
+      </div>
+
+      <div class="card">
+        <h3>AI Chatbot Mentor</h3>
+        <p>
+          Implemented an LLM-based chatbot using Streamlit with structured 
+          prompt engineering for technical assistance.
+        </p>
+        <span>LLMs • Prompt Engineering • Streamlit</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="glass">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div>
+        <strong>Languages:</strong> Java, Python, JavaScript, C/C++
+      </div>
+      <div>
+        <strong>Backend:</strong> FastAPI, Flask, REST API Development
+      </div>
+      <div>
+        <strong>AI / ML:</strong> Machine Learning, NLP, Transformers (BERT, GPT), Generative AI, Agentic AI, Multi-Agent Systems
+      </div>
+      <div>
+        <strong>Databases:</strong> MySQL, MongoDB
+      </div>
+      <div>
+        <strong>Tools:</strong> Git, GitHub, Docker (Basics), Streamlit
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="glass">
+    <h2>Education</h2>
+    <p><strong>B.Tech in Computer Science</strong> – KMIT (2022–2026) | CGPA: 9.2</p>
+    <p>Intermediate – 99%</p>
+    <p>SSC – GPA 10</p>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="glass">
+    <h2>Certifications</h2>
+    <p>Data Science & Generative AI – Innomatics Research Labs</p>
+    <p>Full-Stack Web Development (MERN) – Udemy</p>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="glass">
+    <h2>Achievements</h2>
+    <p>NSTSE – All India Rank 191 | AP State Rank 49</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Dandu Chandra Shikara
+  </footer>
+
+</div>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = Math.random() * 0.3 - 0.15;
+    this.speedY = Math.random() * 0.3 - 0.15;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if (this.x > canvas.width) this.x = 0;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.y > canvas.height) this.y = 0;
+    if (this.y < 0) this.y = canvas.height;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function init() {
+  for (let i = 0; i < 180; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particlesArray.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+init();
+animate();
+</script>
+
+</body>
+</html>
 
